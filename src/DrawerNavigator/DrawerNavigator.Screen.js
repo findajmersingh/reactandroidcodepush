@@ -29,8 +29,9 @@ export class DrawerNavigatorScreen extends Component {
         <Drawer.Screen
           name="TestConnectNativeScreen"
           component={TestConnectNativeScreen}
-          options={{drawerLabel: 'Test connect native'}}
+          options={{drawerLabel: 'Test connect again'}}
         />
+		
       </Drawer.Navigator>
     );
   }

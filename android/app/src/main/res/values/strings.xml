@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">DemoIntegrateRN</string>
+    <string moduleConfig="true" name="CodePushDeploymentKey">2BwDd716YoK2-0Uun32L-zVbD-ansKKyXmow7</string>
 </resources>

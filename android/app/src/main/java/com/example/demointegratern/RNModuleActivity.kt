@@ -1,5 +1,6 @@
 package com.example.demointegratern
 
+import android.R
 import android.app.Activity
 import android.os.Bundle
 import android.view.KeyEvent
@@ -9,12 +10,15 @@ import com.facebook.react.common.LifecycleState
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler
 import com.facebook.react.shell.MainReactPackage
 import com.facebook.soloader.SoLoader
+import com.microsoft.codepush.react.CodePush
+import com.microsoft.codepush.react.CodePushBuilder
 import com.oblador.vectoricons.VectorIconsPackage
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage
 import com.swmansion.gesturehandler.react.RNGestureHandlerEnabledRootView
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage
 import com.swmansion.reanimated.ReanimatedPackage
 import com.th3rdwave.safeareacontext.SafeAreaContextPackage
+
 
 class RNModuleActivity : Activity(), DefaultHardwareBackBtnHandler {
     private var mReactRootView: ReactRootView? = null
@@ -31,13 +35,17 @@ class RNModuleActivity : Activity(), DefaultHardwareBackBtnHandler {
                 .setCurrentActivity(this)
                 .setBundleAssetName("index.android.bundle")
                 .setJSMainModulePath("index")
+                .addPackage(CodePush("2BwDd716YoK2-0Uun32L-zVbD-ansKKyXmow7",application))
+                .setJSBundleFile(CodePush.getJSBundleFile())
                 .addPackage(MainReactPackage())
+
                 .addPackage(ReanimatedPackage())
                 .addPackage(VectorIconsPackage())
                 .addPackage(RNGestureHandlerPackage())
                 .addPackage(AsyncStoragePackage())
                 .addPackage(SafeAreaContextPackage())
                 .addPackage(TestConnectNativePackage())
+
                 .setUseDeveloperSupport(BuildConfig.DEBUG)
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 .build()
